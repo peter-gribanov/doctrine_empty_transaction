@@ -7,7 +7,9 @@ use App\Exception\InvalidArgumentException;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Table(name="user")
+ * @ORM\Table(name="user", uniqueConstraints={
+ *     @ORM\UniqueConstraint(name="user_idx_1", columns={"email"})
+ * })
  * @ORM\Entity
  */
 final class User
