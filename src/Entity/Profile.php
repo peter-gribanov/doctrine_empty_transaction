@@ -3,29 +3,44 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Embeddable
+ */
 final class Profile
 {
     /**
+     * @ORM\Column(name="avatar", type="string", length=255, nullable=false)
+     *
      * @var string
      */
     private $avatar = '';
 
     /**
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
+     *
      * @var string
      */
     private $firstname = '';
 
     /**
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
+     *
      * @var string
      */
     private $lastname = '';
 
     /**
+     * @ORM\Column(name="gender", type="Gender", nullable=false)
+     *
      * @var Gender
      */
     private $gender;
 
     /**
+     * @ORM\Column(name="birth_at", type="DateTimeImmutable", nullable=true)
+     *
      * @var \DateTimeImmutable|null
      */
     private $birth_at;
@@ -41,7 +56,7 @@ final class Profile
         string $avatar,
         string $firstname,
         string $lastname,
-        Gender $gender = null,
+        ?Gender $gender = null,
         ?\DateTimeImmutable $birth_at = null
     ) {
         $this->avatar = $avatar;

@@ -3,19 +3,30 @@ declare(strict_types=1);
 
 namespace App\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Embeddable
+ */
 final class Social
 {
     /**
+     * @ORM\Column(name="facebook_id", type="integer", nullable=true, options={"unsigned": true})
+     *
      * @var int|null
      */
     private $facebook_id;
 
     /**
+     * @ORM\Column(name="google_id", type="integer", nullable=true, options={"unsigned": true})
+     *
      * @var int|null
      */
     private $google_id;
 
     /**
+     * @ORM\Column(name="twitter_id", type="integer", nullable=true, options={"unsigned": true})
+     *
      * @var int|null
      */
     private $twitter_id;

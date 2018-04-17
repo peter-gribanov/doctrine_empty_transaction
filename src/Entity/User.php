@@ -4,30 +4,47 @@ declare(strict_types=1);
 namespace App\Entity;
 
 use App\Exception\InvalidArgumentException;
+use Doctrine\ORM\Mapping as ORM;
 
+/**
+ * @ORM\Table(name="user")
+ * @ORM\Entity
+ */
 final class User
 {
     /**
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\Column(name="id", type="UserId", nullable=false, options={"unsigned": true})
+     *
      * @var UserId
      */
     private $id;
 
     /**
+     * @ORM\Column(name="email", type="string", nullable=false, length=255)
+     *
      * @var string
      */
     private $email;
 
     /**
+     * @ORM\Column(name="password", type="Password", nullable=false, length=255)
+     *
      * @var Password
      */
     private $password;
 
     /**
+     * @ORM\Embedded(class="Social")
+     *
      * @var Social
      */
     private $social;
 
     /**
+     * @ORM\Embedded(class="Profile")
+     *
      * @var Profile
      */
     private $profile;
