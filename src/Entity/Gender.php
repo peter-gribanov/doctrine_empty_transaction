@@ -87,10 +87,11 @@ final class Gender
 
     /**
      * @param string $method
+     * @param array  $arguments
      *
      * @return Gender
      */
-    public static function __callStatic(string $method): self
+    public static function __callStatic(string $method, array $arguments = []): self
     {
         return self::byValue($method);
     }
