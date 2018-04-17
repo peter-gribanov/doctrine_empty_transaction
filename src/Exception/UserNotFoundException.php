@@ -14,6 +14,6 @@ final class UserNotFoundException extends \DomainException
      */
     public static function withId(UserId $id): self
     {
-        return new self(sprintf('Not found user with id "%d".', $id->id()));
+        return new self(sprintf('Not found user with id "%s".', $id->id()));
     }
 }

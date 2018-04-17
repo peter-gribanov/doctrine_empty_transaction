@@ -6,22 +6,22 @@ namespace App\Entity;
 final class UserId
 {
     /**
-     * @var int
+     * @var string
      */
     private $id;
 
     /**
-     * @param int $id
+     * @param string $id
      */
-    public function __construct(int $id)
+    public function __construct(string $id)
     {
         $this->id = $id;
     }
 
     /**
-     * @return int
+     * @return string
      */
-    public function id(): int
+    public function id(): string
     {
         return $this->id;
     }
@@ -31,6 +31,6 @@ final class UserId
      */
     public function __toString(): string
     {
-        return (string) $this->id;
+        return $this->id;
     }
 }
