@@ -17,14 +17,14 @@ final class User
     /**
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
-     * @ORM\Column(name="id", type="UserId", nullable=false, options={"unsigned": true})
+     * @ORM\Column(name="id", type="UserId", nullable=false, length=11)
      *
      * @var UserId
      */
     private $id;
 
     /**
-     * @ORM\Column(name="email", type="string", nullable=false, length=255)
+     * @ORM\Column(name="email", type="string", nullable=false, length=128)
      *
      * @var string
      */
