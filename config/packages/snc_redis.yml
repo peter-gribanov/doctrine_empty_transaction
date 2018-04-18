@@ -1,0 +1,39 @@
+parameters:
+    env(REDIS_HOST): 127.0.0.1
+    env(REDIS_PORT): 6379
+
+snc_redis:
+    clients:
+        default:
+            type: predis
+            alias: default
+            dsn: 'redis://%env(REDIS_HOST)%:%env(REDIS_PORT)%'
+            logging: '%kernel.debug%'
+        doctrine:
+            type: predis
+            alias: doctrine
+            dsn: 'redis://%env(REDIS_HOST)%:%env(REDIS_PORT)%/2'
+            logging: false
+        doctrine_metadata:
+            type: predis
+            alias: doctrine_metadata
+            dsn: 'redis://%env(REDIS_HOST)%:%env(REDIS_PORT)%/5'
+            logging: false
+
+    doctrine:
+        metadata_cache:
+            client: doctrine_metadata
+            entity_manager: default
+            namespace: 'dmc:'
+        result_cache:
+            client: doctrine
+            entity_manager: default
+            namespace: 'drc:'
+        query_cache:
+            client: doctrine
+            entity_manager: default
+            namespace: 'dqc:'
+        second_level_cache:
+            client: doctrine
+            entity_manager: default
+            namespace: 'dslc:'

@@ -1,3 +1,8 @@
+services:
+    second_level_cache:
+        class: '%snc_redis.doctrine_cache_predis.class%'
+        arguments: [ '@snc_redis.doctrine' ]
+
 parameters:
     # Adds a fallback DATABASE_URL if the env var is not set.
     # This allows you to run cache:warmup even if your
@@ -9,7 +14,7 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_sqlite'
-        server_version: '5.7'
+        server_version: '3.11'
         charset: utf8mb4
         default_table_options:
             charset: utf8mb4
@@ -33,3 +38,15 @@ doctrine:
                 dir: '%kernel.project_dir%/src/Entity'
                 prefix: 'App\Entity'
                 alias: App
+                # enable caching
+        second_level_cache:
+            region_cache_driver:
+                type: service
+                id: second_level_cache
+            enabled: true
+            regions:
+                user:
+                    lifetime: 3600
+                    cache_driver:
+                        type: service
+                        id: second_level_cache

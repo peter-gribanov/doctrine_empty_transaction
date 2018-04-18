@@ -22,7 +22,9 @@
         "symfony/validator": "^4.0",
         "symfony/web-link": "^4.0",
         "symfony/webpack-encore-pack": "*",
-        "symfony/yaml": "^4.0"
+        "symfony/yaml": "^4.0",
+        "predis/predis": "~1.1",
+        "snc/redis-bundle": "~2.0"
     },
     "require-dev": {
         "symfony/browser-kit": "^4.0",

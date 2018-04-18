@@ -11,6 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  *     @ORM\UniqueConstraint(name="user_idx_1", columns={"email"})
  * })
  * @ORM\Entity
+ * @ORM\Cache(usage="NONSTRICT_READ_WRITE", region="user")
  */
 final class User
 {
