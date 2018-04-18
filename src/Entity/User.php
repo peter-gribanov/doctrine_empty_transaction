@@ -79,6 +79,14 @@ final class User
     }
 
     /**
+     * @return UserId
+     */
+    public function id(): UserId
+    {
+        return $this->id;
+    }
+
+    /**
      * @param string          $old_plain_password
      * @param string          $new_plain_password
      * @param PasswordEncoder $password_encoder
@@ -143,10 +151,17 @@ final class User
     }
 
     /**
-     * @param Profile $profile
+     * @param string $new_firstname
+     * @param string $new_lastname
      */
-    public function changeProfile(Profile $profile): void
+    public function rename(string $new_firstname, string $new_lastname)
     {
-        $this->profile = $profile;
+        $this->profile = new Profile(
+            $this->profile->avatar(),
+            $new_firstname,
+            $new_lastname,
+            $this->profile->gender(),
+            $this->profile->birthAt()
+        );
     }
 }

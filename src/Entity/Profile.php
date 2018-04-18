@@ -91,21 +91,6 @@ final class Profile
     }
 
     /**
-     * @param string $new_firstname
-     * @param string $new_lastname
-     *
-     * @return Profile
-     */
-    public function rename(string $new_firstname, string $new_lastname): self
-    {
-        $self = clone $this;
-        $self->firstname = $new_firstname;
-        $self->lastname = $new_lastname;
-
-        return $self;
-    }
-
-    /**
      * @return Gender
      */
     public function gender(): Gender
