@@ -42,7 +42,7 @@ class Version20180417153629CreateUserTable extends AbstractMigration
             INSERT INTO
               user
             VALUES
-              (?, ?, ?, NULL, NULL, NULL, "", "", "", "unknown", NULL)
+              (?, ?, ?, NULL, NULL, NULL, "", "Alan", "Sanderson", "unknown", NULL)
         ', [
             'D1aeVyioKNs',
             'test@example.com',

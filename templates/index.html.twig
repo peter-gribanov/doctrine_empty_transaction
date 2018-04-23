@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ user.id }}
+    <h1>Home page</h1>
+    Show profile of user with ID: <a href="{{ path('user_profile', {id: user.id}) }}">{{ user.id }}</a>
 {% endblock %}
